@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Assistant Job Portal</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
+
+    <!-- Header Section -->
+    <div style="background-color: #4CAF50; color: white; padding: 20px; text-align: center;">
+        <h1 style="margin: 0;">Virtual Assistant Job Portal</h1>
+        <p>Your platform for finding the perfect virtual assistant jobs</p>
+    </div>
+
+    <!-- Main Content Section -->
+    <div style="padding: 20px;">
+        <!-- Introduction Section -->
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h2 style="color: #333;">Welcome to Our Job Platform</h2>
+            <p>Our mission is to help skilled virtual assistants find jobs that fit their expertise. Explore job listings, apply online, and grow your career!</p>
+        </div>
+
+        <!-- Job Listings Section -->
+        <div>
+            <h3 style="color: #4CAF50; border-bottom: 2px solid #4CAF50; padding-bottom: 5px;">Available Job Listings</h3>
+            <div id="job-listings" style="margin-top: 15px;">
+                <!-- Example Job Listing -->
+                <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
+                    <h4 style="margin: 0;">Virtual Assistant - Social Media Specialist</h4>
+                    <p style="margin: 5px 0;">A reputable company is seeking a virtual assistant with expertise in managing social media platforms. Responsibilities include creating content, engaging with followers, and running ads.</p>
+                    <button onclick="applyForJob('Social Media Specialist')" style="background-color: #4CAF50; color: white; border: none; padding: 10px; cursor: pointer;">Apply Now</button>
+                </div>
+                
+                <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
+                    <h4 style="margin: 0;">Virtual Assistant - Data Entry</h4>
+                    <p style="margin: 5px 0;">Looking for a detail-oriented virtual assistant to manage data entry tasks. The ideal candidate should be comfortable with Excel and Google Sheets.</p>
+                    <button onclick="applyForJob('Data Entry')" style="background-color: #4CAF50; color: white; border: none; padding: 10px; cursor: pointer;">Apply Now</button>
+                </div>
+                
+                <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
+                    <h4 style="margin: 0;">Virtual Assistant - Customer Support</h4>
+                    <p style="margin: 5px 0;">We are in need of a virtual assistant to handle customer support. Responsibilities include responding to customer inquiries, managing tickets, and ensuring customer satisfaction.</p>
+                    <button onclick="applyForJob('Customer Support')" style="background-color: #4CAF50; color: white; border: none; padding: 10px; cursor: pointer;">Apply Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Application Form Section -->
+        <div style="margin-top: 30px;">
+            <h3 style="color: #4CAF50; border-bottom: 2px solid #4CAF50; padding-bottom: 5px;">Application Form</h3>
+            <form id="application-form" style="margin-top: 15px;">
+                <label for="jobTitle" style="display: block; margin-bottom: 5px;">Job Title</label>
+                <input type="text" id="jobTitle" name="jobTitle" readonly style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd;">
+                
+                <label for="name" style="display: block; margin-bottom: 5px;">Your Name</label>
+                <input type="text" id="name" name="name" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd;" required>
+                
+                <label for="email" style="display: block; margin-bottom: 5px;">Email Address</label>
+                <input type="email" id="email" name="email" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd;" required>
+                
+                <label for="coverLetter" style="display: block; margin-bottom: 5px;">Cover Letter</label>
+                <textarea id="coverLetter" name="coverLetter" rows="5" style="width: 100%; padding: 10px; border: 1px solid #ddd;" required></textarea>
+                
+                <button type="button" onclick="submitApplication()" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; margin-top: 10px; cursor: pointer;">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Section -->
+    <script>
+        // Function to handle job application selection
+        function applyForJob(jobTitle) {
+            document.getElementById('jobTitle').value = jobTitle;
+            document.getElementById('application-form').scrollIntoView({behavior: 'smooth'});
+        }
+
+        // Function to handle application submission
+        function submitApplication() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const jobTitle = document.getElementById('jobTitle').value;
+
+            if (name && email && jobTitle) {
+                alert('Thank you, ' + name + '! Your application for ' + jobTitle + ' has been submitted.');
+                document.getElementById('application-form').reset();
+            } else {
+                alert('Please complete all fields before submitting.');
+            }
+        }
+    </script>
+
+    <!-- Footer Section -->
+    <div style="background-color: #333; color: white; text-align: center; padding: 10px; margin-top: 20px;">
+        <p>&copy; 2024 Virtual Assistant Job Portal. All rights reserved.</p>
+    </div>
+
+</body>
+</html>
